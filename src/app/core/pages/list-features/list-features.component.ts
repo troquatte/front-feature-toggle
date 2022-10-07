@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 // Services
-import { ListAllService } from '../../services/list-all.service';
+import { FeatureToggleService } from '../../services/featureToggleService.service';
 
 // Interfaces
 import { IFeatureToggle } from '../../interface/feature-toggle.interface';
@@ -17,12 +17,12 @@ export class ListFeaturesComponent implements OnInit {
   public loadingSpiner: boolean = true;
 
   constructor(
-    private listAllService: ListAllService,
+    private featureToggleService: FeatureToggleService,
     private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
-    this.listAllService.findAll().subscribe({
+    this.featureToggleService.findAll().subscribe({
       next: (next) => {
         this.getListSales = next;
         this.loadingSpiner = false;
@@ -38,7 +38,7 @@ export class ListFeaturesComponent implements OnInit {
 
   public delete(id: string | undefined, index: number) {
     if (id) {
-      this.listAllService.delete(id).subscribe({
+      this.featureToggleService.delete(id).subscribe({
         next: (next) => {
           this.loadingSpiner = false;
           this.getListSales.splice(index, 1);

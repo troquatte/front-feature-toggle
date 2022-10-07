@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { IFeatureToggle } from 'src/app/core/interface/feature-toggle.interface';
 
 // Services
-import { ListAllService } from 'src/app/core/services/list-all.service';
+import { FeatureToggleService } from 'src/app/core/services/featureToggleService.service';
 
 @Component({
   selector: 'app-form-feature-toggle',
@@ -42,7 +42,7 @@ export class FormFeatureToggleComponent implements OnInit {
   constructor(
     private snackBar: MatSnackBar,
     private formBuilder: FormBuilder,
-    private listAllService: ListAllService,
+    private featureToggleService: FeatureToggleService,
     private router: Router
   ) {}
 
@@ -171,7 +171,7 @@ export class FormFeatureToggleComponent implements OnInit {
 
       if (this.addFormFeatureToggle.controls._id.value) {
         featureToggle._id = this.addFormFeatureToggle.controls._id.value;
-        this.listAllService.update(featureToggle).subscribe({
+        this.featureToggleService.update(featureToggle).subscribe({
           next: (next) => {
             this.snackBar.open('Atualizado com sucesso', 'Fechar', {
               duration: 5000,
@@ -180,7 +180,7 @@ export class FormFeatureToggleComponent implements OnInit {
           },
         });
       } else {
-        this.listAllService.create(featureToggle).subscribe({
+        this.featureToggleService.create(featureToggle).subscribe({
           next: (next) => {
             this.snackBar.open('Criado com sucesso', 'Fechar', {
               duration: 5000,

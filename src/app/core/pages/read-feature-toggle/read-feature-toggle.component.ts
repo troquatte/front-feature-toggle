@@ -6,7 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 
 // Services
-import { ListAllService } from '../../services/list-all.service';
+import { FeatureToggleService } from '../../services/featureToggleService.service';
 
 // Components
 import { DialogFormFeatureToggle } from 'src/app/shared/components/dialogs/dialog-form-feature-toggle/dialog-form-feature-toggle.component';
@@ -29,12 +29,12 @@ export class ReadFeatureToggleComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private snackBar: MatSnackBar,
-    private listAllService: ListAllService,
+    private featureToggleService: FeatureToggleService,
     private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.listAllService
+    this.featureToggleService
       .read(String(this.activatedRoute.snapshot.paramMap.get('id')))
       .subscribe({
         next: (next) => {
@@ -84,7 +84,7 @@ export class ReadFeatureToggleComponent implements OnInit {
 
   public update() {
     this.loadingSpiner = true;
-    this.listAllService.update(this.getFeatureToggle).subscribe({
+    this.featureToggleService.update(this.getFeatureToggle).subscribe({
       next: (next) => {
         this.loadingSpiner = false;
         this.validateEnabledSave(next, true);

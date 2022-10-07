@@ -1,6 +1,6 @@
-import { catchError, map, Observable, retry, throwError } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 // Interfaces
 import {
@@ -11,7 +11,7 @@ import {
 @Injectable({
   providedIn: 'root',
 })
-export class ListAllService {
+export class FeatureToggleService {
   private url = 'http://localhost:3000/feature-toggle';
 
   constructor(private http: HttpClient) {}
@@ -48,14 +48,15 @@ export class ListAllService {
       .pipe(map((res) => res));
   }
 
-  public consumer(
-    id: string = '6340688ad8976855ac7625ab'
-  ): Observable<IFeatureToggleResponse> {
+  public consumer(): Observable<IFeatureToggleResponse> {
     return this.http
-      .post<IFeatureToggleResponse>(`${this.url}/consumer/${id}`, {
-        apiKey: 'e0fdfcf2-32de-4074-8214-1b65794e6fba',
-        env: 'prod',
-      })
+      .post<IFeatureToggleResponse>(
+        `${this.url}/consumer/6340737207dfe6aaf73a6940`,
+        {
+          apiKey: '953106f9-269a-41ba-abe2-0a5fd7030f9e',
+          env: 'prod',
+        }
+      )
       .pipe(map((res) => res));
   }
 }
