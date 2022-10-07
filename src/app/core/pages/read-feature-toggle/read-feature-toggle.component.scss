@@ -1,0 +1,37 @@
+@use "src/scss/tools/rem-calc" as function;
+
+:host {
+  .container {
+    &__btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__toggle-itens {
+      width: 100%;
+      padding: function.rem-calc(35) function.rem-calc(35) 0
+        function.rem-calc(35);
+      border-radius: function.rem-calc(10);
+      background-color: var(--white);
+
+      h3 {
+        padding: function.rem-calc(15);
+        background-color: var(--primary);
+      }
+
+      section {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+
+        label {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: function.rem-calc(10) function.rem-calc(15);
+        }
+      }
+    }
+  }
+}

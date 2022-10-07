@@ -1,0 +1,10 @@
+:host {
+  display: block;
+  border-radius: var(--border-radius);
+  width: 310px;
+  max-height: 500px;
+  overflow: y;
+  .btn {
+    width: 100%;
+  }
+}

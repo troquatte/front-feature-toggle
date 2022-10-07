@@ -1,0 +1,11 @@
+@mixin offset-margin($margin, $value) {
+  margin-#{$margin}: $value;
+}
+
+@for $i from 1 through 5 {
+  @each $margin in top, left, bottom, right {
+    .m-#{$margin}-#{$i} {
+      @include offset-margin($margin, 0.5rem * $i);
+    }
+  }
+}

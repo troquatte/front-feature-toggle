@@ -1,0 +1,158 @@
+<form class="container__form m-bottom-2" [formGroup]="addFormFeatureToggle">
+  <h2>
+    {{ nextForm[currentForm].textTitle }}
+  </h2>
+
+  <ng-container *ngIf="currentForm === 0">
+    <label>
+      <input
+        #inputData
+        type="text"
+        placeholder="Nome do Projeto"
+        formControlName="formProjectName"
+        (input)="
+          formatInputValue(
+            inputData,
+            null,
+            addFormFeatureToggle.get('formProjectName')
+          )
+        "
+        required
+      />
+    </label>
+
+    <button
+      type="button"
+      class="btn btn-primary btn__next"
+      [disabled]="
+        addFormFeatureToggle.get('formProjectName')?.status !== 'VALID'
+      "
+      (click)="currentForm = 1"
+    >
+      Próximo passo
+    </button>
+  </ng-container>
+
+  <ng-container *ngIf="currentForm === 1">
+    <label
+      *ngFor="let itens of formItensEnvironment.controls; let i = index"
+      formGroupName="formItensEnvironment"
+    >
+      <input
+        #inputData
+        type="text"
+        placeholder="Nome do Ambiente"
+        maxlength="10"
+        (input)="formatInputValue(inputData, i, formItensEnvironment.controls)"
+        [value]="itens.value"
+        [formControlName]="i"
+        required
+      />
+
+      <button
+        type="button"
+        class="btn__remove_absolute"
+        (click)="removeInputForm(formItensEnvironment, i)"
+      >
+        <img src="assets/icons/x.svg" alt="Deletar input" />
+      </button>
+    </label>
+
+    <button
+      type="button"
+      class="btn btn-dashed m-bottom-2"
+      (click)="addInputForm(formItensEnvironment)"
+    >
+      Adicionar mais Ambientes
+    </button>
+
+    <ng-container
+      *ngIf="
+        hasInputValues(addFormFeatureToggle.get('formItensEnvironment')?.value)
+      "
+    >
+      <button
+        type="button"
+        class="btn btn-primary btn__next"
+        [disabled]="
+          addFormFeatureToggle.get('formItensEnvironment')?.status !==
+            'VALID' ||
+          addFormFeatureToggle.get('formItensEnvironment')?.value.length === 0
+        "
+        (click)="currentForm = 2"
+      >
+        Próximo passo
+      </button>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="currentForm === 2">
+    <label
+      *ngFor="let itens of formItensFeaturesToggle.controls; let i = index"
+      formGroupName="formItensFeaturesToggle"
+    >
+      <input
+        #inputData
+        type="text"
+        placeholder="Nome da Feature"
+        maxlength="10"
+        (input)="
+          formatInputValue(inputData, i, formItensFeaturesToggle.controls)
+        "
+        [value]="itens.value"
+        [formControlName]="i"
+        required
+      />
+      <button
+        type="button"
+        class="btn__remove_absolute"
+        (click)="removeInputForm(formItensFeaturesToggle, i)"
+      >
+        <img src="assets/icons/x.svg" alt="Deletar input" />
+      </button>
+    </label>
+
+    <button
+      type="button"
+      class="btn btn-dashed m-bottom-2"
+      (click)="addInputForm(formItensFeaturesToggle)"
+    >
+      Adicionar mais features toggle
+    </button>
+
+    <ng-container
+      *ngIf="
+        hasInputValues(
+          addFormFeatureToggle.get('formItensFeaturesToggle')?.value
+        )
+      "
+    >
+      <button
+        type="button"
+        class="btn btn-primary btn__next"
+        [disabled]="
+          addFormFeatureToggle.get('formItensFeaturesToggle')?.status !==
+            'VALID' ||
+          addFormFeatureToggle.get('formItensFeaturesToggle')?.value.length ===
+            0
+        "
+        (click)="submitInputForm()"
+      >
+        {{ cloneAddFormFeatureToggle ? "Alterar" : "Criar" }}
+      </button>
+    </ng-container>
+  </ng-container>
+
+  <ng-container
+    *ngIf="
+      !hasInputValues(
+        addFormFeatureToggle.get('formItensEnvironment')?.value
+      ) ||
+      !hasInputValues(
+        addFormFeatureToggle.get('formItensFeaturesToggle')?.value
+      )
+    "
+  >
+    <span class="btn btn-secondary">Campos com valores duplicados!</span>
+  </ng-container>
+</form>

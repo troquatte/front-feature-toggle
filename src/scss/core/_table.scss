@@ -1,0 +1,40 @@
+@use "src/scss/tools/rem-calc" as function;
+
+table {
+  width: 100%;
+  margin-top: function.rem-calc(30);
+
+  thead {
+    height: function.rem-calc(50);
+    background-color: var(--primary);
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  tr {
+    &:nth-child(even) {
+      background-color: var(--darken-background);
+    }
+
+    th,
+    td {
+      height: function.rem-calc(50);
+      padding: 0 function.rem-calc(20);
+      text-align: left;
+      vertical-align: middle;
+
+      .text-and-icon {
+        display: flex;
+        align-items: center;
+
+        img {
+          margin-right: function.rem-calc(10);
+        }
+      }
+
+      &:last-child {
+        text-align: center;
+      }
+    }
+  }
+}

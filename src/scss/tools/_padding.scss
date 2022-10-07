@@ -1,0 +1,11 @@
+@mixin offset-padding($padding, $value) {
+  padding-#{$padding}: $value;
+}
+
+@for $i from 1 through 5 {
+  @each $padding in top, left, bottom, right {
+    .p-#{$padding}-#{$i} {
+      @include offset-padding($padding, 0.5rem * $i);
+    }
+  }
+}

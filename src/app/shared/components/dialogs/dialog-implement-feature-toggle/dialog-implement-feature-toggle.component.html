@@ -1,0 +1,15 @@
+<h2>Configuração da implementação</h2>
+
+<code class="btn btn-border m-top-3 m-bottom-3">
+  post url - http://localhost:3000/feature-toggle/consumer/{{ _id }}
+</code>
+<pre class="btn btn-border">
+<strong>Content Body</strong>
+<strong>{{ "{" }}</strong>
+  "apiKey": <strong>"{{apiKey}}"</strong>, "env": <strong>SEU_AMBIENTE</strong>
+<strong>{{ "}" }}</strong>
+</pre>
+
+<button type="button" class="btn btn-primary m-top-2" (click)="close()">
+  Fechar
+</button>

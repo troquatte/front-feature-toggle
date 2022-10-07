@@ -1,0 +1,55 @@
+<div *ngIf="loadingSpiner" class="container__full-page">
+  <mat-spinner diameter="50"></mat-spinner>
+</div>
+
+<main
+  class="container__full-page"
+  *ngIf="!loadingSpiner && getListSales.length === 0"
+>
+  <a
+    [routerLink]="['/create-feature']"
+    class="btn btn-square btn-square-primary"
+  >
+    <img src="assets/icons/toggle.svg" alt="" />
+    Crie sua <br />Feature toggle
+  </a>
+</main>
+
+<main class="container" *ngIf="!loadingSpiner && getListSales.length > 0">
+  <section class="container__header">
+    <h1>Feature Toggles</h1>
+    <a [routerLink]="['/create-feature']" class="btn btn-primary">
+      Nova feature toggle
+    </a>
+  </section>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>API Key</th>
+        <th>Configurações</th>
+        <th>Deletar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let itens of getListSales; let i = index">
+        <td>{{ itens.projectName }}</td>
+        <td>{{ itens.apiKey }}</td>
+
+        <td>
+          <a class="text-and-icon" [routerLink]="['/read-feature', itens._id]">
+            <img src="assets/icons/code.svg" alt="Acessar" />
+            Acessar
+          </a>
+        </td>
+
+        <td>
+          <button type="button" (click)="delete(itens?._id, i)">
+            <img src="assets/icons/trash.svg" alt="Acessar" />
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</main>

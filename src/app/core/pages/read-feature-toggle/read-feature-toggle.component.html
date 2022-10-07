@@ -1,0 +1,50 @@
+<div *ngIf="loadingSpiner" class="container__full-page">
+  <mat-spinner diameter="50"></mat-spinner>
+</div>
+
+<main class="container p-bottom-5" *ngIf="!loadingSpiner && getFeatureToggle">
+  <section class="container__header">
+    <h1>Feature: {{ getFeatureToggle.projectName }}</h1>
+
+    <div class="container__btn">
+      <button class="btn btn-border m-right-1" (click)="openDialogEdit()">
+        Alterar dados do Ambiente
+      </button>
+      <button class="btn btn-border m-right-1" (click)="openDialogImplement()">
+        Implementar
+      </button>
+
+      <button class="btn btn-primary" *ngIf="getEnabledSave" (click)="update()">
+        Salvar
+      </button>
+    </div>
+  </section>
+
+  <form class="container__toggle-itens m-top-3">
+    <section
+      *ngFor="
+        let environment of getFeatureToggle.itensEnvironment;
+        let indexToggle = index
+      "
+    >
+      <h3>Ambiente de: {{ environment[0] }}</h3>
+
+      <label *ngFor="let itens of environment[1]; let indexEnv = index">
+        {{ itens[0] }}
+
+        <mat-slide-toggle
+          name="feature-toggle"
+          [checked]="itens[1]"
+          (change)="setEnabledOrDisabledSave($event, indexToggle, indexEnv)"
+        >
+        </mat-slide-toggle>
+      </label>
+    </section>
+  </form>
+
+  <section class="container__header m-top-3" *ngIf="getEnabledSave">
+    <h2>Não se esqueça de salvar suas alterações</h2>
+
+    <button class="btn btn-primary" (click)="update()">Salvar</button>
+  </section>
+</main>

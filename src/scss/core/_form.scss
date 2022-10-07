@@ -1,0 +1,14 @@
+@use "src/scss/tools/rem-calc" as function;
+
+label {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  margin-bottom: function.rem-calc(10);
+}
+
+input {
+  width: 100%;
+  padding: function.rem-calc(15) function.rem-calc(22);
+  border-radius: var(--border-radius);
+}

@@ -1,0 +1,76 @@
+@use "src/scss/tools/rem-calc" as function;
+
+.btn,
+.btn-square {
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  font-size: function.rem-calc(16) !important;
+}
+
+.btn {
+  padding: function.rem-calc(15) function.rem-calc(30);
+
+  &-dashed {
+    border: function.rem-calc(1) dashed;
+
+    &:hover {
+      background-color: var(--darken-background);
+    }
+  }
+
+  &-border {
+    border: function.rem-calc(1) solid;
+
+    &:hover {
+      background-color: var(--darken-background);
+    }
+  }
+
+  &-primary {
+    background-color: var(--primary);
+
+    &:hover {
+      background-color: var(--darken-primary);
+    }
+  }
+
+  &-secondary {
+    background-color: var(--secondary);
+    color: var(--white);
+    &:hover {
+      background-color: var(--darken-secondary);
+    }
+  }
+}
+
+.btn {
+  &.btn-square {
+    width: function.rem-calc(130);
+    height: function.rem-calc(130);
+
+    &-primary {
+      background-color: var(--primary);
+
+      &:hover {
+        background-color: var(--darken-primary);
+      }
+    }
+
+    &-secondary {
+      background-color: var(--secondary);
+
+      &:hover {
+        background-color: var(--darken-secondary);
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@use "src/scss/tools/rem-calc" as function;
+
+.container__form {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  h2 {
+    margin: 0 0 function.rem-calc(24) 0;
+  }
+
+  label {
+    position: relative;
+
+    .btn__remove_absolute {
+      position: absolute;
+      width: auto;
+      right: function.rem-calc(8);
+      top: function.rem-calc(17);
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .btn__next {
+    bottom: function.rem-calc(-65);
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .btn-dashed,
+  .btn-secondary {
+    width: 100%;
+  }
+}

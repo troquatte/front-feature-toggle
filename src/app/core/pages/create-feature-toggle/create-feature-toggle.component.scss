@@ -1,0 +1,24 @@
+@use "src/scss/tools/rem-calc" as function;
+
+:host {
+  h1 {
+    margin: 0 0 function.rem-calc(24);
+    text-align: center;
+  }
+
+  a {
+    width: function.rem-calc(522);
+    margin: function.rem-calc(10) auto;
+  }
+
+  main {
+    width: function.rem-calc(522);
+    margin: 0 auto;
+
+    border-radius: var(--border-radius);
+    background-color: var(--white);
+    padding: function.rem-calc(33) function.rem-calc(50);
+
+    text-align: center;
+  }
+}
