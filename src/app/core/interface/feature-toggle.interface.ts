@@ -2,13 +2,15 @@ export interface IFeatureToggle {
   _id?: string;
   projectName: string;
   apiKey?: string;
-  itensEnvironment: Array<[string, any[] | Array<[string, boolean]>]>;
+  itensEnvironment: Array<{
+    env: string;
+    toggle: Array<{ name: string; value: boolean }>;
+  }>;
 }
 
 export interface IFeatureToggleResponse {
   env: string;
   toggles: {
-    whatsapp: boolean;
-    logo: boolean;
+    promo: boolean;
   };
 }

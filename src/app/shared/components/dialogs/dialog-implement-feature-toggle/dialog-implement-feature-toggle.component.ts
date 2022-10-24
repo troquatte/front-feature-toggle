@@ -13,12 +13,12 @@ import { DialogFormFeatureToggle } from '../dialog-form-feature-toggle/dialog-fo
 export class DialogImplementFeatureToggleComponent implements OnInit {
   public _id!: string;
   public apiKey!: string;
+  public env!: string;
 
   constructor(
     public dialogRef: MatDialogRef<DialogImplementFeatureToggleComponent>,
-    @Inject(MAT_DIALOG_DATA) data: { apiKey: string; _id: string }
+    @Inject(MAT_DIALOG_DATA) data: { apiKey: string }
   ) {
-    this._id = data._id;
     this.apiKey = data.apiKey;
   }
 

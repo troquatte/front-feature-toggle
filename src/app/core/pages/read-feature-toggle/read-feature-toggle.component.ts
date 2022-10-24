@@ -65,7 +65,6 @@ export class ReadFeatureToggleComponent implements OnInit {
   public openDialogImplement() {
     this.dialog.open(DialogImplementFeatureToggleComponent, {
       data: {
-        _id: this.getFeatureToggle._id,
         apiKey: this.getFeatureToggle.apiKey,
       },
     });
@@ -73,10 +72,10 @@ export class ReadFeatureToggleComponent implements OnInit {
 
   public setEnabledOrDisabledSave(
     event: any,
-    indexToggle: number,
-    indexEnv: number
+    indexEnv: number,
+    indexToggle: number
   ) {
-    this.getFeatureToggle.itensEnvironment[indexToggle][1][indexEnv][1] =
+    this.getFeatureToggle.itensEnvironment[indexEnv].toggle[indexToggle].value =
       event.checked;
 
     this.validateEnabledSave(this.getFeatureToggle);

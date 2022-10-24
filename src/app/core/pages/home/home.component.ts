@@ -9,8 +9,7 @@ import { FeatureToggleService } from '../../services/featureToggleService.servic
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  public featureToggleWhats!: boolean;
-  public featureToggleLogo!: boolean;
+  public featureToggle!: boolean;
 
   constructor(public featureToggleService: FeatureToggleService) {}
 
@@ -18,8 +17,7 @@ export class HomeComponent implements OnInit {
     document.querySelector('app-header')?.remove();
 
     this.featureToggleService.consumer().subscribe((res) => {
-      this.featureToggleWhats = res.toggles.whatsapp;
-      this.featureToggleLogo = res.toggles.logo;
+      this.featureToggle = res.toggles.promo;
     });
   }
 }

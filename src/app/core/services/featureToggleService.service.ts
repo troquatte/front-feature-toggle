@@ -50,13 +50,14 @@ export class FeatureToggleService {
 
   public consumer(): Observable<IFeatureToggleResponse> {
     return this.http
-      .post<IFeatureToggleResponse>(
-        `${this.url}/consumer/6340737207dfe6aaf73a6940`,
-        {
-          apiKey: '953106f9-269a-41ba-abe2-0a5fd7030f9e',
-          env: 'prod',
-        }
+      .get<IFeatureToggleResponse>(
+        `${this.url}/consumer/a80a280c-0633-4438-a952-39d7ec8f3409/dev`
       )
-      .pipe(map((res) => res));
+      .pipe(
+        map((res) => {
+          console.log(res);
+          return res;
+        })
+      );
   }
 }

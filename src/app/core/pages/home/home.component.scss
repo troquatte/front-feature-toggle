@@ -1,8 +1,10 @@
 :host {
-  .feature-toggle {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    width: 75px;
+  .container__full-page {
+    flex-direction: column;
+
+    a {
+      margin-top: 10px;
+      width: 666px;
+    }
   }
 }

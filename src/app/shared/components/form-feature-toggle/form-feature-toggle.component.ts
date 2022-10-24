@@ -75,10 +75,13 @@ export class FormFeatureToggleComponent implements OnInit {
   }
 
   get treatmentFormItensEnvironment() {
-    let data: Array<string> = [];
-    this.addFormFeatureToggle?.itensEnvironment.forEach((res: any) => {
-      data.push(res[0]);
-    });
+    let data: any = [];
+
+    this.addFormFeatureToggle?.itensEnvironment?.forEach(
+      (itens: { env: string }) => {
+        data.push(itens.env);
+      }
+    );
 
     return data;
   }
@@ -90,10 +93,22 @@ export class FormFeatureToggleComponent implements OnInit {
   }
 
   get treatmentFormItensFeaturesToggle() {
-    let data: Array<[string, boolean]> = [];
-    this.addFormFeatureToggle?.itensEnvironment[0][1].forEach((res: any) => {
-      data.push(res[0]);
-    });
+    let data: any = [];
+    this.addFormFeatureToggle?.itensEnvironment?.forEach(
+      (
+        itensToggle: {
+          env: string;
+          toggle: [{ name: string; value: boolean }];
+        },
+        indexToggle: number
+      ) => {
+        itensToggle.toggle.forEach((res) => {
+          if (indexToggle == 0) {
+            return data.push(res.name);
+          }
+        });
+      }
+    );
 
     return data;
   }
@@ -135,31 +150,38 @@ export class FormFeatureToggleComponent implements OnInit {
 
   public submitInputForm() {
     if (this.addFormFeatureToggle.status === 'VALID') {
-      let itensEnvironment: Array<[string, any[] | Array<[string, boolean]>]> =
-        [];
+      let itensEnvironment: Array<{
+        env: string;
+        toggle: Array<{ name: string; value: boolean }>;
+      }> = [];
 
       this.formItensEnvironment.value.map((envs: string, indexEnv: number) => {
-        let cloneItensEnv: any = undefined;
-
-        if (this.cloneAddFormFeatureToggle?.itensEnvironment) {
-          cloneItensEnv =
-            this.cloneAddFormFeatureToggle?.itensEnvironment[indexEnv];
-        }
-
-        itensEnvironment.push([envs, []]);
+        itensEnvironment.push({
+          env: envs,
+          toggle: [],
+        });
 
         this.formItensFeaturesToggle.value.forEach(
           (feature: string, index: number) => {
-            if (cloneItensEnv) {
-              if (cloneItensEnv[1] && cloneItensEnv[1][index]) {
-                return itensEnvironment[indexEnv][1].push([
-                  feature,
-                  cloneItensEnv[1][index][1],
-                ]);
-              }
+            const toggleValue =
+              this.cloneAddFormFeatureToggle?.itensEnvironment[indexEnv].toggle[
+                index
+              ]?.value;
+
+            if (
+              this.cloneAddFormFeatureToggle?.itensEnvironment &&
+              toggleValue !== undefined
+            ) {
+              return itensEnvironment[indexEnv].toggle.push({
+                name: feature,
+                value: toggleValue,
+              });
             }
 
-            return itensEnvironment[indexEnv][1].push([feature, true]);
+            return itensEnvironment[indexEnv].toggle.push({
+              name: feature,
+              value: true,
+            });
           }
         );
       });

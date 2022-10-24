@@ -1,14 +1,29 @@
 <h2>Configuração da implementação</h2>
 
-<code class="btn btn-border m-top-3 m-bottom-3">
-  post url - http://localhost:3000/feature-toggle/consumer/{{ _id }}
+<code class="btn btn-border m-top-2 m-bottom-3">
+  get url -
+  http://localhost:3000/feature-toggle/consumer/<strong>:APIKEY</strong>/<strong
+    >:ENV</strong
+  >
 </code>
-<pre class="btn btn-border">
-<strong>Content Body</strong>
-<strong>{{ "{" }}</strong>
-  "apiKey": <strong>"{{apiKey}}"</strong>, "env": <strong>SEU_AMBIENTE</strong>
-<strong>{{ "}" }}</strong>
-</pre>
+
+<h2>Clique na url de exemplo:</h2>
+
+<section class="btn btn-border m-top-2 m-bottom-3">
+  <a
+    href="http://localhost:3000/feature-toggle/consumer/{{ apiKey }}/dev"
+    target="_blank"
+  >
+    http://localhost:3000/feature-toggle/consumer/{{ apiKey }}/dev
+  </a>
+</section>
+
+<h2>Variáveis para consulta:</h2>
+
+<section class="btn btn-border m-top-2">
+  <p><strong>APIKEY =</strong> {{ apiKey }}</p>
+  <p><strong>ENV =</strong> sua váriavel de ambiente exp.: dev, hml ou prod</p>
+</section>
 
 <button type="button" class="btn btn-primary m-top-2" (click)="close()">
   Fechar
