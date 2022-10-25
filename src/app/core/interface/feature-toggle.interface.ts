@@ -12,5 +12,8 @@ export interface IFeatureToggleResponse {
   env: string;
   toggles: {
     promo: boolean;
+    a_vista: boolean;
+    cartao: boolean;
+    itau: boolean;
   };
 }

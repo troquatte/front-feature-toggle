@@ -1,4 +1,4 @@
-<div class="container__full-page" *ngIf="featureToggle">
+<div class="container__full-page" *ngIf="featureTogglePromo">
   <iframe
     width="666"
     height="375"
@@ -11,11 +11,33 @@
 
   <a
     href="https://vidafullstack.com.br/curso-de-angular/"
-    class="btn btn-secondary"
+    class="btn formas-de-pagamento"
     target="_blank"
+    *ngIf="featureToggleCartao"
   >
-    Comprar curso com preço promocional
+    <img src="assets/pagamentos/pagar-com-cartao.jpg" alt="Cartão" />
+  </a>
+
+  <a
+    href="https://vidafullstack.com.br/curso-de-angular/"
+    class="btn formas-de-pagamento"
+    target="_blank"
+    *ngIf="featureToggleAvista"
+  >
+    <img src="assets/pagamentos/pagar-com-pix-boleto.jpg" alt="Cartão" />
+  </a>
+
+  <a
+    href="https://vidafullstack.com.br/curso-de-angular/"
+    class="btn btn-itau"
+    target="_blank"
+    *ngIf="featureToggleItau"
+  >
+    <img src="assets/pagamentos/webimage-logo_cmsless_varejo.png" alt="" />
+    Pagar direto no App Itaú
   </a>
 </div>
 
-<h1 class="container__full-page" *ngIf="!featureToggle">Vagas encerradas!</h1>
+<h1 class="container__full-page" *ngIf="!featureTogglePromo">
+  Vagas encerradas!
+</h1>
