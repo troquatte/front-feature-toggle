@@ -164,9 +164,8 @@ export class FormFeatureToggleComponent implements OnInit {
         this.formItensFeaturesToggle.value.forEach(
           (feature: string, index: number) => {
             const toggleValue =
-              this.cloneAddFormFeatureToggle?.itensEnvironment[indexEnv].toggle[
-                index
-              ]?.value;
+              this.cloneAddFormFeatureToggle?.itensEnvironment[indexEnv]
+                ?.toggle[index]?.value;
 
             if (
               this.cloneAddFormFeatureToggle?.itensEnvironment &&
