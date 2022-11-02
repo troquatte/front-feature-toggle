@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 // Services
-import { FeatureToggleService } from '../../services/featureToggleService.service';
+import { FeatureToggleService } from 'src/app/modules/dashboard/services/featureToggleService.service';
 
 // Interfaces
-import { IFeatureToggle } from '../../interface/feature-toggle.interface';
+import { IFeatureToggle } from 'src/app/core/interface/feature-toggle.interface';
 
 @Component({
   selector: 'app-list-features',
@@ -28,8 +28,6 @@ export class ListFeaturesComponent implements OnInit {
         this.loadingSpiner = false;
       },
       error: (e) => {
-        console.log(e);
-
         this.getListSales = [];
         this.loadingSpiner = false;
       },

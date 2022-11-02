@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
-// Interfaces
 import { ActivatedRoute } from '@angular/router';
 
+// Interfaces
+import { IFeatureToggle } from 'src/app/core/interface/feature-toggle.interface';
+
 // Services
-import { FeatureToggleService } from '../../services/featureToggleService.service';
+import { FeatureToggleService } from 'src/app/modules/dashboard/services/featureToggleService.service';
 
 // Components
 import { DialogFormFeatureToggle } from 'src/app/shared/components/dialogs/dialog-form-feature-toggle/dialog-form-feature-toggle.component';
 import { DialogImplementFeatureToggleComponent } from 'src/app/shared/components/dialogs/dialog-implement-feature-toggle/dialog-implement-feature-toggle.component';
-import { IFeatureToggle } from '../../interface/feature-toggle.interface';
 
 @Component({
   selector: 'app-read-feature-toggle',

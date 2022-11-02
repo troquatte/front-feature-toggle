@@ -7,7 +7,7 @@
   *ngIf="!loadingSpiner && getListSales.length === 0"
 >
   <a
-    [routerLink]="['/create-feature']"
+    [routerLink]="['create-feature']"
     class="btn btn-square btn-square-primary"
   >
     <img src="assets/icons/toggle.svg" alt="" />
@@ -18,7 +18,7 @@
 <main class="container" *ngIf="!loadingSpiner && getListSales.length > 0">
   <section class="container__header">
     <h1>Feature Toggles</h1>
-    <a [routerLink]="['/create-feature']" class="btn btn-primary">
+    <a [routerLink]="['create-feature']" class="btn btn-primary">
       Nova feature toggle
     </a>
   </section>
@@ -38,7 +38,7 @@
         <td>{{ itens.apiKey }}</td>
 
         <td>
-          <a class="text-and-icon" [routerLink]="['/read-feature', itens._id]">
+          <a class="text-and-icon" [routerLink]="['read-feature', itens._id]">
             <img src="assets/icons/code.svg" alt="Acessar" />
             Acessar
           </a>

@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import {
   IFeatureToggle,
   IFeatureToggleResponse,
-} from '../interface/feature-toggle.interface';
+} from '../../../core/interface/feature-toggle.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -51,7 +51,7 @@ export class FeatureToggleService {
   public consumer(): Observable<IFeatureToggleResponse> {
     return this.http
       .get<IFeatureToggleResponse>(
-        `${this.url}/consumer/308b3ef0-3d34-4e6b-93ea-ffceafa3c037/dev`
+        `${this.url}/consumer/4674ce7a-5cb0-454e-bc3e-80570e9ea47e/dev`
       )
       .pipe(
         map((res) => {

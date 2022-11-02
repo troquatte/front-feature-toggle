@@ -1,0 +1,44 @@
+@use "src/scss/tools/rem-calc" as fn;
+
+$maxGrid: 12;
+
+@mixin rowAndColSize() {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(12, 7.33%);
+  gap: 1.1%;
+}
+
+@mixin rowAndColFluid() {
+  grid-column: span $maxGrid;
+
+  @for $i from 1 through $maxGrid {
+    .col-#{$i} {
+      grid-column: span $i;
+    }
+  }
+}
+
+.container {
+  margin: 0 auto;
+  width: fn.rem-calc(1168);
+
+  display: grid;
+  grid-template-columns: repeat(12, fn.rem-calc(90));
+  gap: fn.rem-calc(8);
+
+  &__fluid {
+    @include rowAndColSize();
+
+    .row {
+      @include rowAndColSize();
+      @include rowAndColFluid();
+    }
+  }
+
+  .row {
+    @include rowAndColSize();
+    @include rowAndColFluid();
+  }
+}

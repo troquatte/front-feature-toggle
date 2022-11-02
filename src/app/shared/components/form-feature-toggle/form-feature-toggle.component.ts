@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { IFeatureToggle } from 'src/app/core/interface/feature-toggle.interface';
 
 // Services
-import { FeatureToggleService } from 'src/app/core/services/featureToggleService.service';
+import { FeatureToggleService } from 'src/app/modules/dashboard/services/featureToggleService.service';
 
 @Component({
   selector: 'app-form-feature-toggle',
