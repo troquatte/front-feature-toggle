@@ -1,22 +1,15 @@
-@use "src/scss/tools/rem-calc" as function;
+@use "src/scss/tools/rem-calc" as fn;
 
 :host {
   .container {
-    &__btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
     &__toggle-itens {
       width: 100%;
-      padding: function.rem-calc(35) function.rem-calc(35) 0
-        function.rem-calc(35);
-      border-radius: function.rem-calc(10);
+      padding: fn.rem-calc(35) fn.rem-calc(35) 0 fn.rem-calc(35);
+      border-radius: fn.rem-calc(10);
       background-color: var(--white);
 
       h3 {
-        padding: function.rem-calc(15);
+        padding: fn.rem-calc(15);
         background-color: var(--primary);
       }
 
@@ -29,7 +22,7 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: function.rem-calc(10) function.rem-calc(15);
+          padding: fn.rem-calc(10) fn.rem-calc(15);
         }
       }
     }

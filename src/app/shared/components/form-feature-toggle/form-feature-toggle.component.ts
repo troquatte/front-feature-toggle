@@ -206,7 +206,7 @@ export class FormFeatureToggleComponent implements OnInit {
             this.snackBar.open('Criado com sucesso', 'Fechar', {
               duration: 5000,
             });
-            this.router.navigate(['/read-feature/', next._id]);
+            this.router.navigate(['/dashboard/read-feature/', next._id]);
           },
         });
       }

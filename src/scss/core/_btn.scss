@@ -43,11 +43,11 @@
     }
   }
 
-  &-secondary {
-    background-color: var(--secondary);
+  &-error {
+    background-color: var(--error);
     color: var(--white);
     &:hover {
-      background-color: var(--darken-secondary);
+      background-color: var(--darken-error);
     }
   }
 }
@@ -65,11 +65,11 @@
       }
     }
 
-    &-secondary {
-      background-color: var(--secondary);
+    &-error {
+      background-color: var(--error);
 
       &:hover {
-        background-color: var(--darken-secondary);
+        background-color: var(--darken-error);
       }
     }
   }

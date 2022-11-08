@@ -1,13 +1,11 @@
-@use "src/scss/tools/rem-calc" as function;
+@use "src/scss/tools/rem-calc" as fn;
 
 :host {
-  .container {
-    margin-top: function.rem-calc(60);
-
-    section {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+  .container-create-feature {
+    width: 100%;
+    height: calc(100vh - fn.rem-calc(115.4));
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

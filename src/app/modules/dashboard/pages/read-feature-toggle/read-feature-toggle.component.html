@@ -3,13 +3,14 @@
 </div>
 
 <main class="container p-bottom-5" *ngIf="!loadingSpiner && getFeatureToggle">
-  <section class="container__header">
-    <h1>Feature: {{ getFeatureToggle.projectName }}</h1>
+  <section class="row">
+    <h1 class="col-7">Feature: {{ getFeatureToggle.projectName }}</h1>
 
-    <div class="container__btn">
+    <div class="col-5 d-flex justify-content-end align-items-center">
       <button class="btn btn-border m-right-1" (click)="openDialogEdit()">
-        Alterar dados do Ambiente
+        Alterar ambientes
       </button>
+
       <button class="btn btn-border m-right-1" (click)="openDialogImplement()">
         Implementar
       </button>
@@ -20,8 +21,9 @@
     </div>
   </section>
 
-  <form class="container__toggle-itens m-top-3">
+  <form class="row container__toggle-itens m-top-3">
     <section
+      class="row"
       *ngFor="
         let itens of getFeatureToggle.itensEnvironment;
         let indexEnv = index
@@ -42,7 +44,10 @@
     </section>
   </form>
 
-  <section class="container__header m-top-3" *ngIf="getEnabledSave">
+  <section
+    class="row d-flex justify-content-end align-items-center m-top-3"
+    *ngIf="getEnabledSave"
+  >
     <h2>Não se esqueça de salvar suas alterações</h2>
 
     <button class="btn btn-primary" (click)="update()">Salvar</button>

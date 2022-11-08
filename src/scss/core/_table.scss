@@ -1,7 +1,7 @@
 @use "src/scss/tools/rem-calc" as function;
 
 table {
-  width: 100%;
+  width: inherit;
   margin-top: function.rem-calc(30);
 
   thead {

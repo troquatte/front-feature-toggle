@@ -1,32 +1,190 @@
+@use "src/scss/tools/rem-calc" as fn;
+
 :host {
-  .container__full-page {
-    flex-direction: column;
+  header {
+    nav {
+      ul {
+        li {
+          margin-right: fn.rem-calc(40);
 
-    a {
-      &.formas-de-pagamento {
-        border: 5px solid var(--primary);
-        background: #ffffff;
-
-        img {
-          transform: scale(1.2);
+          &:last-child {
+            margin-right: fn.rem-calc(0);
+          }
         }
       }
+    }
+  }
 
-      &.btn-itau {
-        background: #ec7000;
-        color: #ffffff;
+  main {
+    margin-top: fn.rem-calc(60);
+
+    .call-to-action,
+    .what-is-feature-toggle {
+      article {
+        h1,
+        h2 {
+          font-size: fn.rem-calc(45);
+          margin: fn.rem-calc(15) 0;
+          line-height: 110%;
+        }
+
+        p {
+          font-size: fn.rem-calc(16);
+          line-height: 120%;
+        }
+      }
+    }
+
+    .call-to-action {
+      img {
+        width: 80%;
+      }
+    }
+
+    .what-is-feature-toggle {
+      margin-top: fn.rem-calc(-8);
+      background: var(--secondary);
+
+      article {
+        width: fn.rem-calc(847);
+        padding-top: fn.rem-calc(45);
+
+        h2 {
+          color: var(--white);
+          max-width: fn.rem-calc(385);
+          text-align: right;
+          margin: 0;
+          padding: fn.rem-calc(10) fn.rem-calc(25) fn.rem-calc(62) 0;
+          border-right: fn.rem-calc(2) solid var(--white);
+        }
+
+        p {
+          max-width: fn.rem-calc(440);
+          color: var(--white);
+          padding: fn.rem-calc(10) 0 fn.rem-calc(62) fn.rem-calc(25);
+        }
+      }
+    }
+  }
+
+  .what-is-medusa {
+    background: url("../../../../assets/images/bg-medusas.png") top center
+      no-repeat;
+    background-color: var(--black);
+    background-size: cover;
+
+    &__text {
+      margin-top: fn.rem-calc(45);
+      margin-bottom: fn.rem-calc(35);
+
+      article {
+        width: fn.rem-calc(830);
+        text-align: center;
+        h2 {
+          line-height: 110%;
+          font-size: fn.rem-calc(45);
+          margin: fn.rem-calc(15) 0;
+        }
+
+        p {
+          font-size: fn.rem-calc(16);
+          line-height: 120%;
+        }
+
+        h2,
+        p {
+          color: var(--white);
+        }
+      }
+    }
+
+    &__itens {
+      article {
+        background: var(--white);
+        border-radius: var(--border-radius);
+        padding: fn.rem-calc(45) fn.rem-calc(22);
+
+        img {
+          margin-bottom: fn.rem-calc(24);
+        }
+
+        h3 {
+          margin-bottom: fn.rem-calc(12);
+        }
+
+        img,
+        h3,
+        p {
+          color: var(--black);
+          text-align: center;
+        }
+      }
+    }
+
+    &__logos {
+      p {
+        color: var(--white);
         font-weight: bold;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
+        margin-right: fn.rem-calc(10);
+      }
+    }
+  }
 
-        img {
-          margin-right: 20px;
+  @media (max-width: 790px) {
+    header {
+      nav {
+        ul {
+          display: none !important;
         }
       }
-      margin-top: 10px;
-      width: 666px;
+    }
+
+    main {
+      margin-top: fn.rem-calc(25);
+
+      .call-to-action,
+      .what-is-feature-toggle {
+        article {
+          h1,
+          h2 {
+            font-size: fn.rem-calc(25);
+            margin: fn.rem-calc(15) 0;
+          }
+        }
+      }
+
+      .call-to-action {
+        img {
+          margin-top: fn.rem-calc(30);
+          width: 100%;
+        }
+      }
+
+      .what-is-feature-toggle {
+        margin-top: fn.rem-calc(1);
+
+        article {
+          flex-direction: column;
+          margin-bottom: fn.rem-calc(50);
+
+          h2,
+          p {
+            border: 0;
+            text-align: center;
+            padding: 0 fn.rem-calc(20);
+          }
+        }
+      }
+    }
+
+    .what-is-medusa {
+      &__text {
+        article {
+          h2 {
+            font-size: fn.rem-calc(25);
+          }
+        }
+      }
     }
   }
 }

@@ -10,8 +10,11 @@
   --primary: #5ae4a8;
   --darken-primary: #{darken(#5ae4a8, 20%)};
 
-  --secondary: #ff004f;
-  --darken-secondary: #{darken(#ff004f, 20%)};
+  --secondary: #6675ff;
+  --darken-secondary: #{darken(#6675ff, 20%)};
+
+  --error: #ff004f;
+  --darken-error: #{darken(#ff004f, 20%)};
 
   --100-heigth: #{calc(100vh - #{function.rem-calc(117)})};
   --border-radius: #{function.rem-calc(10)};

@@ -3,7 +3,7 @@
 </div>
 
 <main
-  class="container__full-page"
+  class="container-create-feature"
   *ngIf="!loadingSpiner && getListSales.length === 0"
 >
   <a
@@ -16,9 +16,9 @@
 </main>
 
 <main class="container" *ngIf="!loadingSpiner && getListSales.length > 0">
-  <section class="container__header">
-    <h1>Feature Toggles</h1>
-    <a [routerLink]="['create-feature']" class="btn btn-primary">
+  <section class="row">
+    <h1 class="col-9">Feature Toggles</h1>
+    <a [routerLink]="['create-feature']" class="btn btn-primary col-3">
       Nova feature toggle
     </a>
   </section>

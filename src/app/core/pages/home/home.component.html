@@ -1,1 +1,145 @@
-<p>opa</p>
+<header class="container">
+  <nav class="row m-top-3 d-flex justify-content-between align-items-center">
+    <img src="assets/logo.svg" alt="Logo Medusa Feature Toggle for apps" />
+
+    <ul class="d-flex justify-content-between align-items-center">
+      <li>
+        <a href=""> Inicio </a>
+      </li>
+
+      <li>
+        <a href=""> Documentação </a>
+      </li>
+
+      <li>
+        <a href=""> Contato </a>
+      </li>
+
+      <li>
+        <a
+          [routerLink]="['/dashboard']"
+          target="_blank"
+          class="btn btn-primary"
+        >
+          Entrar
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+    <section class="call-to-action row align-items-center">
+      <article class="col-5">
+        <h1>Simplifique a gestão das funcionalidades de seus produtos!</h1>
+        <p>
+          Já imaginou em tempo real ou muito próximo disso, conseguirmos ativar
+          ou desativar features da sua aplicação, sem ter que passar por
+          processos de deploy?
+        </p>
+      </article>
+
+      <article class="col-7 d-flex justify-content-end">
+        <img src="assets/images/people-select-toggle.svg" alt="" />
+      </article>
+    </section>
+  </div>
+
+  <div
+    class="what-is-feature-toggle d-flex justify-content-center align-items-center"
+  >
+    <article class="d-flex justify-content-center align-items-center">
+      <h2>Mas o que é Feature Toggle?</h2>
+
+      <p>
+        Feature toggle é uma estratégia que nos permite fazer integração
+        contínua. Essa estratégia consiste em habilitar e desabilitar recursos e
+        funcionalidades em um sistema sem alteração de código.
+      </p>
+    </article>
+  </div>
+</main>
+
+<footer class="what-is-medusa">
+  <div class="container">
+    <section
+      class="what-is-medusa__text row d-flex justify-content-center align-items-center"
+    >
+      <article>
+        <h2>Mas o que é Feature Toggle?</h2>
+
+        <p>
+          Para os desenvolvedores que enfrentam dificuldade em desenvolver
+          feature toggle em virtude das restrições/impedimentos ou até mesmo por
+          não ter uma ferramenta para o mesmo, a Medusa é um hub de feature
+          toggle que diminui significativamente o leadtime das entregas e é bem
+          mais rápido, simples e menos burocrático para implementar comparado
+          com a solução do Firebase, AWS, etc.
+        </p>
+      </article>
+    </section>
+
+    <section class="what-is-medusa__itens row">
+      <article class="col-3 d-flex">
+        <div class="d-flex-column align-items-center justify-content-start">
+          <img
+            src="assets/icons/painel-admin.svg"
+            alt="Painel Administrativo"
+          />
+          <h3>Painel Administrativo</h3>
+          <p>
+            Já imaginou em tempo real ou muito próximo disso, conseguirmos
+            ativar ou desativar features da sua aplicação, sem ter que passar
+            por processos de deploy?
+          </p>
+        </div>
+      </article>
+
+      <article class="col-3 d-flex">
+        <div class="d-flex-column align-items-center justify-content-start">
+          <img src="assets/icons/pc.svg" alt="Gestão de Funcionalidades" />
+          <h3>Gestão de Funcionalidades</h3>
+          <p>
+            Com nossa ferramenta você pode facilmente habilitar ou desabilitar
+            funcionalidades de seus produtos, sem ter que redeployar suas
+            aplicações.
+          </p>
+        </div>
+      </article>
+
+      <article class="col-3 d-flex">
+        <div class="d-flex-column align-items-center justify-content-start">
+          <img
+            src="assets/icons/fitness-heart.svg"
+            alt="Remova o risco e o estresse"
+          />
+          <h3>Remova o risco e o estresse</h3>
+          <p>
+            Diminua os incidentes em produção antecipadamente. Quando surgirem
+            bugs, faça um toggle e remova instantaneamente.
+          </p>
+        </div>
+      </article>
+
+      <article class="col-3 d-flex">
+        <div class="d-flex-column align-items-center justify-content-start">
+          <img src="assets/icons/people.svg" alt="Colaboração empresarial" />
+          <h3>Colaboração empresarial</h3>
+          <p>
+            Capacite as partes interessadas dos negócios com mais controle sobre
+            a experiência digital.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section
+      class="what-is-medusa__logos row m-top-5 m-bottom-5 d-flex justify-content-center align-items-center"
+    >
+      <p>Feito por:</p>
+      <img src="assets/logo-itau.svg" alt="Logo Itaú" />
+      <img src="assets/logo-zup.svg" alt="Logo Zup" />
+    </section>
+  </div>
+</footer>

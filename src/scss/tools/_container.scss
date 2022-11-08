@@ -1,12 +1,54 @@
 @use "src/scss/tools/rem-calc" as fn;
 
 $maxGrid: 12;
-
-@mixin rowAndColSize() {
+// * {
+//   border: 1px solid red !important;
+// }
+@mixin rowAndColSize-1168() {
   width: 100%;
 
   display: grid;
-  grid-template-columns: repeat(12, 7.33%);
+  grid-template-columns: repeat($maxGrid, 7.33%);
+  gap: 1.1%;
+}
+
+@mixin rowAndColSize-915() {
+  width: 80%;
+
+  display: grid;
+  grid-template-columns: repeat($maxGrid, 7.33%);
+  gap: 1.1%;
+}
+
+@mixin rowAndColSize-715() {
+  width: 60%;
+
+  display: grid;
+  grid-template-columns: repeat(6, 15.33%);
+  gap: 1.1%;
+}
+
+@mixin rowAndColSize-515() {
+  width: 40%;
+
+  display: grid;
+  grid-template-columns: repeat(1, 100%);
+  gap: 1.1%;
+}
+
+@mixin rowAndColSize-315() {
+  width: 26.8%;
+
+  display: grid;
+  grid-template-columns: repeat(1, 100%);
+  gap: 1.1%;
+}
+
+@mixin rowAndColSize-215() {
+  width: 23%;
+
+  display: grid;
+  grid-template-columns: repeat(1, 100%);
   gap: 1.1%;
 }
 
@@ -29,16 +71,112 @@ $maxGrid: 12;
   gap: fn.rem-calc(8);
 
   &__fluid {
-    @include rowAndColSize();
+    @include rowAndColSize-1168();
 
     .row {
-      @include rowAndColSize();
+      @include rowAndColSize-1168();
       @include rowAndColFluid();
     }
   }
 
   .row {
-    @include rowAndColSize();
+    @include rowAndColSize-1168();
     @include rowAndColFluid();
+  }
+
+  @media (max-width: 1180px) {
+    width: fn.rem-calc(936);
+    margin: 0 auto;
+
+    &__fluid {
+      @include rowAndColSize-915();
+
+      .row {
+        @include rowAndColSize-915();
+        @include rowAndColFluid();
+      }
+    }
+
+    .row {
+      @include rowAndColSize-915();
+      @include rowAndColFluid();
+    }
+  }
+
+  @media (max-width: 990px) {
+    width: fn.rem-calc(715);
+    margin: 0 auto;
+
+    &__fluid {
+      @include rowAndColSize-715();
+
+      .row {
+        @include rowAndColSize-715();
+        @include rowAndColFluid();
+      }
+    }
+
+    .row {
+      @include rowAndColSize-715();
+      @include rowAndColFluid();
+    }
+  }
+
+  @media (max-width: 790px) {
+    width: fn.rem-calc(478);
+    margin: 0 auto;
+
+    &__fluid {
+      @include rowAndColSize-515();
+
+      .row {
+        @include rowAndColSize-515();
+        @include rowAndColFluid();
+      }
+    }
+
+    .row {
+      @include rowAndColSize-515();
+      @include rowAndColFluid();
+    }
+  }
+
+  @media (max-width: 590px) {
+    width: fn.rem-calc(320);
+    margin: 0 auto;
+
+    &__fluid {
+      @include rowAndColSize-315();
+
+      .row {
+        @include rowAndColSize-315();
+        @include rowAndColFluid();
+      }
+    }
+
+    .row {
+      @include rowAndColSize-315();
+      @include rowAndColFluid();
+    }
+  }
+
+  @media (max-width: 490px) {
+    margin: 0 auto;
+
+    padding: 0 fn.rem-calc(22);
+
+    &__fluid {
+      @include rowAndColSize-215();
+
+      .row {
+        @include rowAndColSize-215();
+        @include rowAndColFluid();
+      }
+    }
+
+    .row {
+      @include rowAndColSize-215();
+      @include rowAndColFluid();
+    }
   }
 }
