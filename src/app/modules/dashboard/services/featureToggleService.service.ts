@@ -51,7 +51,7 @@ export class FeatureToggleService {
   public consumer(): Observable<IFeatureToggleResponse> {
     return this.http
       .get<IFeatureToggleResponse>(
-        `${this.url}/consumer/4674ce7a-5cb0-454e-bc3e-80570e9ea47e/dev`
+        `${this.url}/consumer/a8689071-9344-444b-82e4-6a7f87e5eae6/dev`
       )
       .pipe(
         map((res) => {

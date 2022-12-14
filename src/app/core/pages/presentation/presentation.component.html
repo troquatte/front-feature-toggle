@@ -1,4 +1,7 @@
-<div class="container__full-page" *ngIf="featureTogglePromo">
+<div
+  class="presentation d-flex-column justify-content-center align-items-center"
+  *ngIf="featureTogglePromo"
+>
   <iframe
     width="666"
     height="375"
@@ -38,6 +41,9 @@
   </a>
 </div>
 
-<h1 class="container__full-page" *ngIf="!featureTogglePromo">
+<h1
+  class="presentation d-flex-column justify-content-center align-items-center"
+  *ngIf="!featureTogglePromo"
+>
   Vagas encerradas!
 </h1>

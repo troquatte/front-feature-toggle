@@ -1,4 +1,4 @@
-@use "src/scss/tools/rem-calc" as function;
+@use "src/scss/tools/rem-calc" as fn;
 
 .btn,
 .btn-square {
@@ -12,15 +12,15 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-
-  font-size: function.rem-calc(16) !important;
+  min-height: fn.rem-calc(50);
+  font-size: fn.rem-calc(16) !important;
 }
 
 .btn {
-  padding: function.rem-calc(15) function.rem-calc(30);
+  padding: fn.rem-calc(15) fn.rem-calc(30);
 
   &-dashed {
-    border: function.rem-calc(1) dashed;
+    border: fn.rem-calc(1) dashed;
 
     &:hover {
       background-color: var(--darken-background);
@@ -28,7 +28,7 @@
   }
 
   &-border {
-    border: function.rem-calc(1) solid;
+    border: fn.rem-calc(1) solid;
 
     &:hover {
       background-color: var(--darken-background);
@@ -54,8 +54,8 @@
 
 .btn {
   &.btn-square {
-    width: function.rem-calc(130);
-    height: function.rem-calc(130);
+    width: fn.rem-calc(130);
+    height: fn.rem-calc(130);
 
     &-primary {
       background-color: var(--primary);

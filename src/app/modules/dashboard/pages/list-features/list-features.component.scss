@@ -1,6 +1,10 @@
 @use "src/scss/tools/rem-calc" as fn;
 
 :host {
+  .container-loading {
+    height: calc(100vh - fn.rem-calc(115.4));
+  }
+
   .container-create-feature {
     width: 100%;
     height: calc(100vh - fn.rem-calc(115.4));

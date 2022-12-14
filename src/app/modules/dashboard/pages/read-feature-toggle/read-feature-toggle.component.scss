@@ -4,7 +4,7 @@
   .container {
     &__toggle-itens {
       width: 100%;
-      padding: fn.rem-calc(35) fn.rem-calc(35) 0 fn.rem-calc(35);
+      padding: fn.rem-calc(35);
       border-radius: fn.rem-calc(10);
       background-color: var(--white);
 
